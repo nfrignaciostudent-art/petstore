@@ -16,7 +16,7 @@ export const demoPets: Pet[] = [
   {
     id: 3, name: 'Charlie', species: 'Dog', breed: 'French Bulldog', age: 1, price: 600,
     description: 'Adorable French Bulldog puppy with a playful personality.',
-    imageUrl: 'https://images.unsplash.com/photo-1583337130417-13219ce250d3?w=400&h=300&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1605568427561-40dd23c2acea?w=400&h=300&fit=crop',
     category: 'Sale', available: true,
   },
   {
@@ -62,3 +62,4 @@ export const demoPets: Pet[] = [
     category: 'Sale', available: true,
   },
 ];
+
