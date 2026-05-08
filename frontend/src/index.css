@@ -1,0 +1,30 @@
+﻿@import "tailwindcss";
+
+body {
+  margin: 0;
+  background: #faf5f0;
+}
+
+.pet-card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.pet-card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(249, 115, 22, 0.15);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes pulse-badge {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+.pulse-badge {
+  animation: pulse-badge 2s ease-in-out infinite;
+}
