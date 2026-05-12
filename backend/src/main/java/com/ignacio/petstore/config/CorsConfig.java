@@ -1,4 +1,4 @@
-﻿package com.ignacio.petstore;
+﻿package com.ignacio.petstore.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

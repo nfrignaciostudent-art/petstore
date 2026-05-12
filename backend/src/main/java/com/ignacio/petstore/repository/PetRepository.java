@@ -1,5 +1,6 @@
-﻿package com.ignacio.petstore;
+﻿package com.ignacio.petstore.repository;
 
+import com.ignacio.petstore.model.Pet;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 

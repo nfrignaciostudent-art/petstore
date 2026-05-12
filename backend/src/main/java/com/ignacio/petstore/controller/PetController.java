@@ -1,5 +1,7 @@
-﻿package com.ignacio.petstore;
+﻿package com.ignacio.petstore.controller;
 
+import com.ignacio.petstore.model.Pet;
+import com.ignacio.petstore.repository.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

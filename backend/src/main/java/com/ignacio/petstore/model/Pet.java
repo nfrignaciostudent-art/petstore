@@ -1,4 +1,4 @@
-﻿package com.ignacio.petstore;
+﻿package com.ignacio.petstore.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
