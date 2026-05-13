@@ -4,6 +4,7 @@ import type { PetDetail } from '../api/petsApi';
 interface CartContextType {
   cart: PetDetail[];
   addToCart: (pet: PetDetail) => void;
+  removeFromCart: (id: number) => void;
   cartCount: number;
 }
 
@@ -13,14 +14,17 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<PetDetail[]>([]);
 
   const addToCart = (pet: PetDetail) => {
-    // Check if pet is already in cart to prevent duplicates
     if (!cart.find(p => p.id === pet.id)) {
       setCart([...cart, pet]);
     }
   };
 
+  const removeFromCart = (id: number) => {
+    setCart(cart.filter(p => p.id !== id));
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, cartCount: cart.length }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, cartCount: cart.length }}>
       {children}
     </CartContext.Provider>
   );
