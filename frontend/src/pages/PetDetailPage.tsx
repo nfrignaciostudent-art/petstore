@@ -4,12 +4,14 @@ import { Container, Box, Typography, Button, CircularProgress, Card, Grid } from
 import { ArrowBack, ShoppingCart } from '@mui/icons-material';
 import { petsApi } from '../api/petsApi';
 import type { PetDetail } from '../api/petsApi';
+import { useCart } from '../context/CartContext';
 
 const PetDetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [pet, setPet] = useState<PetDetail | null>(null);
   const [loading, setLoading] = useState(true);
+  const { addToCart, cart } = useCart();
 
   useEffect(() => {
     const fetchPet = async () => {
@@ -85,17 +87,19 @@ const PetDetailPage = () => {
                 size="large"
                 startIcon={<ShoppingCart />}
                 fullWidth
+                disabled={cart.some(p => p.id === pet.id)}
                 sx={{
                   py: 1.5,
-                  background: 'linear-gradient(135deg, #f97316, #ea580c)',
+                  background: cart.some(p => p.id === pet.id) ? '#d6d3d1' : 'linear-gradient(135deg, #f97316, #ea580c)',
                   fontWeight: 700, fontSize: '1.1rem',
                   borderRadius: 2,
-                  boxShadow: '0 8px 20px rgba(249,115,22,0.3)',
-                  '&:hover': { background: 'linear-gradient(135deg, #fb923c, #f97316)' }
+                  boxShadow: cart.some(p => p.id === pet.id) ? 'none' : '0 8px 20px rgba(249,115,22,0.3)',
+                  '&:hover': { background: cart.some(p => p.id === pet.id) ? '#d6d3d1' : 'linear-gradient(135deg, #fb923c, #f97316)' },
+                  color: cart.some(p => p.id === pet.id) ? '#78716c' : 'white'
                 }}
-                onClick={() => alert('Added to cart!')}
+                onClick={() => addToCart(pet)}
               >
-                Adopt {pet.name}
+                {cart.some(p => p.id === pet.id) ? 'Added to Cart' : `Adopt ${pet.name}`}
               </Button>
             </Box>
           </Grid>

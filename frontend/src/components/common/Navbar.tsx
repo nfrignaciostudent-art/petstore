@@ -1,8 +1,11 @@
 import { AppBar, Toolbar, Typography, Box, Badge, IconButton } from '@mui/material';
 import { Pets, ShoppingCart } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
+import { useCart } from '../../context/CartContext';
 
 export default function Navbar() {
+  const { cartCount } = useCart();
+
   return (
     <AppBar position="sticky" sx={{
       background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
@@ -17,7 +20,7 @@ export default function Navbar() {
         </Box>
 
         <IconButton color="inherit" sx={{ display: { xs: 'none', sm: 'flex' } }}>
-          <Badge badgeContent={0} color="error">
+          <Badge badgeContent={cartCount} color="error">
             <ShoppingCart />
           </Badge>
         </IconButton>

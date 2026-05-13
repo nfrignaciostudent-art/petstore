@@ -3,12 +3,14 @@ import { Box, Typography } from '@mui/material';
 import Navbar from './components/common/Navbar';
 import CatalogPage from './pages/CatalogPage';
 import PetDetailPage from './pages/PetDetailPage';
+import { CartProvider } from './context/CartContext';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Box sx={{ minHeight: '100vh', bgcolor: '#faf5f0' }}>
-        <Navbar />
+    <CartProvider>
+      <BrowserRouter>
+        <Box sx={{ minHeight: '100vh', bgcolor: '#faf5f0' }}>
+          <Navbar />
         
         {/* Hero */}
         <Box sx={{
@@ -30,6 +32,7 @@ function App() {
         </Routes>
       </Box>
     </BrowserRouter>
+    </CartProvider>
   );
 }
 
